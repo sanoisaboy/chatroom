@@ -1,9 +1,9 @@
 # chatroom
   
   
-/*
+
 create database which name chatroom 
-*/
+
 
 ```
 CREATE DATABASE IF NOT EXISTS chatroom;
@@ -11,9 +11,9 @@ CREATE DATABASE IF NOT EXISTS chatroom;
 
 
 
-/*
+
 selcet database
-*/
+
 
 ```
 SET DATABASE = chatroom;
@@ -21,7 +21,7 @@ SET DATABASE = chatroom;
 SHOW DATABASE;
 
 ```
-/*create table which name users*/
+create table which name users
 
 ```
 CREATE TABLE IF NOT EXISTS users (
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 ```
 
-/*create table which name message*/
+create table which name message
 
 ```
 CREATE TABLE IF NOT EXISTS messages (
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS messages (
     user_id INT
 );
 ```
-/*insert 4 user */
-/*
+insert 4 user 
+
   id | user_name | user_password
 -----+-----------+----------------
    1 | Mopeter   | qwe123
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS messages (
 (4 rows)
 
 
-*/
+
 
 ```
 INSERT INTO users VALUES (1,'Mopeter','qwe123');
@@ -61,8 +61,8 @@ INSERT INTO users VALUES (3,'SAM','zxc123');
 INSERT INTO users VALUES (4,'DOGGY','qaz123');
 ```
 
-/*insert 4 messages */
-/*
+insert 4 messages 
+
   id |       body       | create_at  | user_id
 -----+------------------+------------+----------
    1 | find another job | 2015-02-12 |       1
@@ -70,7 +70,7 @@ INSERT INTO users VALUES (4,'DOGGY','qaz123');
    3 | find a job       | 2035-12-12 |       2
    4 | Godzilla is God  | 2022-03-12 |       3
 (4 rows)
-*/
+
 
 ```
 INSERT INTO messages VALUES (1,'find another job','2/12/2015',1 );
@@ -80,8 +80,8 @@ INSERT INTO messages VALUES (4,'Godzilla is God','3/12/2022',3);
 ```
 
 
-/*creat one to many relationship from user to messages */
-/*
+creat one to many relationship from user to messages 
+
   id |       body       | create_at  | user_id | id | user_name | user_password
 -----+------------------+------------+---------+----+-----------+----------------
    1 | find another job | 2015-02-12 |       1 |  1 | Mopeter   | qwe123
@@ -90,7 +90,7 @@ INSERT INTO messages VALUES (4,'Godzilla is God','3/12/2022',3);
    4 | Godzilla is God  | 2022-03-12 |       3 |  3 | SAM       | zxc123
 (4 rows)
 
-*/
+
 
 
 ```
@@ -100,8 +100,8 @@ INNER JOIN users ON messages.user_id = users.id;
 
 
 ```
-/* sort the messages by create_at*/
-/*
+sort the messages by create_at
+
   id |       body       | create_at  | user_id
 -----+------------------+------------+----------
    1 | find another job | 2015-02-12 |       1
@@ -109,7 +109,7 @@ INNER JOIN users ON messages.user_id = users.id;
    4 | Godzilla is God  | 2022-03-12 |       3
    3 | find a job       | 2035-12-12 |       2
 (4 rows)
-*/
+
 
 ```
 SELECT * 
@@ -118,12 +118,12 @@ ORDER BY create_at;
 ```
 
 
-/* delete id  which is  4*/
+delete id  which is  4
 
 ```
 DELETE FROM messages WHERE id in (4);
 ```
-/* delete table users */
+delete table users 
 ```
 DROP TABLE users;
 ```
