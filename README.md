@@ -5,7 +5,11 @@
 create database which name chatroom 
 */
 
+'''
 CREATE DATABASE IF NOT EXISTS chatroom;
+'''
+
+
 
 /*
 selcet database
